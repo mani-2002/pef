@@ -46,12 +46,12 @@ const App = () => {
   return (
     <div>
       <Router>
-        <div style={{ fontFamily: "cursive" }}>
+        <div style={{ fontFamily: "times new roman" }}>
           <nav
             style={{
               paddingTop: "3vh",
               borderBottom: "1px solid black",
-              backgroundColor: "#10898d",
+              backgroundColor: "#aad6ec",
             }}
           >
             <ol
@@ -74,7 +74,13 @@ const App = () => {
                     fontSize: "5vh",
                   }}
                 >
-                  <div style={{ display: "flex", alignItems: "center" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      color: "white",
+                    }}
+                  >
                     <img
                       src={logo}
                       alt="this is manipe logo"
@@ -140,7 +146,6 @@ const App = () => {
                       background: "none",
                       border: "none",
                       width: "14vh",
-                      fontFamily: "cursive",
                       textDecorationLine: "underline",
                     }}
                   >
