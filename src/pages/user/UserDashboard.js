@@ -109,7 +109,7 @@ const UserDashboard = ({ onLogout }) => {
     try {
       // Make the fetch request to the server
       const response = await fetch(
-        "https://peb-production.up.railway.app/api/link-bank-account",
+        "https://peb.onrender.com/api/link-bank-account",
         {
           method: "POST",
           headers: {
@@ -162,7 +162,7 @@ const UserDashboard = ({ onLogout }) => {
   useEffect(() => {
     // Fetch user details from the backend
     const token = localStorage.getItem("token");
-    fetch("https://peb-production.up.railway.app/api/user-details", {
+    fetch("https://peb.onrender.com/api/user-details", {
       method: "GET",
       headers: {
         Authorization: token,
@@ -178,7 +178,7 @@ const UserDashboard = ({ onLogout }) => {
   const handleUnlink = (accountNumber) => {
     const token = localStorage.getItem("token");
     fetch(
-      `https://peb-production.up.railway.app/api/delete-account/${accountNumber}`,
+      `https://peb.onrender.com/api/delete-account/${accountNumber}`,
       {
         method: "DELETE",
         headers: {
@@ -213,7 +213,7 @@ const UserDashboard = ({ onLogout }) => {
     try {
       // Make a fetch request to update the database
       const response = await fetch(
-        "https://peb-production.up.railway.app/api/set-primary-account",
+        "https://peb.onrender.com/api/set-primary-account",
         {
           method: "POST",
           headers: {
@@ -244,7 +244,7 @@ const UserDashboard = ({ onLogout }) => {
     const token = localStorage.getItem("token");
     try {
       const response = await fetch(
-        `https://peb-production.up.railway.app/api/balance/${accountNumber}`,
+        `https://peb.onrender.com/api/balance/${accountNumber}`,
         {
           method: "GET",
           headers: {
@@ -266,7 +266,7 @@ const UserDashboard = ({ onLogout }) => {
   useEffect(() => {
     // Fetch user details from the backend
     const token = localStorage.getItem("token");
-    fetch("https://peb-production.up.railway.app/api/user-details", {
+    fetch("https://peb.onrender.com/api/user-details", {
       method: "GET",
       headers: {
         Authorization: token,
@@ -294,7 +294,7 @@ const UserDashboard = ({ onLogout }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("https://peb-production.up.railway.app/api/user-emails", {
+    fetch("https://peb.onrender.com/api/user-emails", {
       method: "GET",
       headers: {
         Authorization: token,
@@ -329,7 +329,7 @@ const UserDashboard = ({ onLogout }) => {
     } else {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `https://peb-production.up.railway.app/api/user-details/${selectedEmail}`,
+        `https://peb.onrender.com/api/user-details/${selectedEmail}`,
         {
           method: "GET",
           headers: {
@@ -380,7 +380,7 @@ const UserDashboard = ({ onLogout }) => {
 
     try {
       const response = await fetch(
-        "https://peb-production.up.railway.app/transfer",
+        "https://peb.onrender.com/transfer",
         {
           method: "POST",
           headers: {
@@ -438,7 +438,7 @@ const UserDashboard = ({ onLogout }) => {
 
     try {
       const response = await fetch(
-        "https://peb-production.up.railway.app/mob-transfer",
+        "https://peb.onrender.com/mob-transfer",
         {
           method: "POST",
           headers: {
@@ -497,7 +497,7 @@ const UserDashboard = ({ onLogout }) => {
 
     try {
       const response = await fetch(
-        "https://peb-production.up.railway.app/upi-transfer",
+        "https://peb.onrender.com/upi-transfer",
         {
           method: "POST",
           headers: {
@@ -647,7 +647,7 @@ const UserDashboard = ({ onLogout }) => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://peb-production.up.railway.app/user-transactions`,
+          `https://peb.onrender.com/user-transactions`,
           {
             method: "GET",
             headers: {

@@ -80,7 +80,7 @@ const AdminDashboard = ({ onLogout }) => {
     const token = localStorage.getItem("token");
     try {
       const response = await fetch(
-        "https://peb-production.up.railway.app/distinct-users",
+        "https://peb.onrender.com/distinct-users",
         {
           headers: {
             authorization: token,
@@ -97,7 +97,7 @@ const AdminDashboard = ({ onLogout }) => {
   const deleteUserByEmail = async (email) => {
     try {
       const response = await fetch(
-        `https://peb-production.up.railway.app/delete-users/${email}`,
+        `https://peb.onrender.com/delete-users/${email}`,
         {
           method: "DELETE",
         }
@@ -114,7 +114,7 @@ const AdminDashboard = ({ onLogout }) => {
   const [transactions, setTransactions] = useState([]);
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("https://peb-production.up.railway.app/transaction-history", {
+    fetch("https://peb.onrender.com/transaction-history", {
       headers: {
         authorization: token,
       },
@@ -163,7 +163,7 @@ const AdminDashboard = ({ onLogout }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("https://peb-production.up.railway.app/transactions", {
+    fetch("https://peb.onrender.com/transactions", {
       headers: {
         Authorization: token,
       },
@@ -228,7 +228,7 @@ const AdminDashboard = ({ onLogout }) => {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `https://peb-production.up.railway.app/suggestions?email=${input}`,
+        `https://peb.onrender.com/suggestions?email=${input}`,
         {
           headers: {
             Authorization: token,
@@ -255,7 +255,7 @@ const AdminDashboard = ({ onLogout }) => {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `https://peb-production.up.railway.app/search?email=${email}`,
+        `https://peb.onrender.com/search?email=${email}`,
         {
           headers: {
             Authorization: token,

@@ -21,7 +21,7 @@ const Login = ({ onLogin }) => {
 
     try {
       const response = await axios.post(
-        "https://peb-production.up.railway.app/api/login",
+        "https://peb.onrender.com/api/login",
         formData
       );
       const { token } = response.data;
