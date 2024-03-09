@@ -109,7 +109,7 @@ const UserDashboard = ({ onLogout }) => {
     try {
       // Make the fetch request to the server
       const response = await fetch(
-        "http://localhost:3001/api/link-bank-account",
+        "https://peb-production.up.railway.app/api/link-bank-account",
         {
           method: "POST",
           headers: {
@@ -162,7 +162,7 @@ const UserDashboard = ({ onLogout }) => {
   useEffect(() => {
     // Fetch user details from the backend
     const token = localStorage.getItem("token");
-    fetch("http://localhost:3001/api/user-details", {
+    fetch("https://peb-production.up.railway.app/api/user-details", {
       method: "GET",
       headers: {
         Authorization: token,
@@ -177,12 +177,15 @@ const UserDashboard = ({ onLogout }) => {
 
   const handleUnlink = (accountNumber) => {
     const token = localStorage.getItem("token");
-    fetch(`http://localhost:3001/api/delete-account/${accountNumber}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: token,
-      },
-    })
+    fetch(
+      `https://peb-production.up.railway.app/api/delete-account/${accountNumber}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: token,
+        },
+      }
+    )
       .then((response) => {
         if (response.ok) {
           // If the deletion was successful, update user details state
@@ -210,7 +213,7 @@ const UserDashboard = ({ onLogout }) => {
     try {
       // Make a fetch request to update the database
       const response = await fetch(
-        "http://localhost:3001/api/set-primary-account",
+        "https://peb-production.up.railway.app/api/set-primary-account",
         {
           method: "POST",
           headers: {
@@ -241,7 +244,7 @@ const UserDashboard = ({ onLogout }) => {
     const token = localStorage.getItem("token");
     try {
       const response = await fetch(
-        `http://localhost:3001/api/balance/${accountNumber}`,
+        `https://peb-production.up.railway.app/api/balance/${accountNumber}`,
         {
           method: "GET",
           headers: {
@@ -263,7 +266,7 @@ const UserDashboard = ({ onLogout }) => {
   useEffect(() => {
     // Fetch user details from the backend
     const token = localStorage.getItem("token");
-    fetch("http://localhost:3001/api/user-details", {
+    fetch("https://peb-production.up.railway.app/api/user-details", {
       method: "GET",
       headers: {
         Authorization: token,
@@ -291,7 +294,7 @@ const UserDashboard = ({ onLogout }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("http://localhost:3001/api/user-emails", {
+    fetch("https://peb-production.up.railway.app/api/user-emails", {
       method: "GET",
       headers: {
         Authorization: token,
@@ -326,7 +329,7 @@ const UserDashboard = ({ onLogout }) => {
     } else {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `http://localhost:3001/api/user-details/${selectedEmail}`,
+        `https://peb-production.up.railway.app/api/user-details/${selectedEmail}`,
         {
           method: "GET",
           headers: {
@@ -376,17 +379,20 @@ const UserDashboard = ({ onLogout }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3001/transfer", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-        body: JSON.stringify({
-          ...formData,
-          amount: parseFloat(formData.amount),
-        }),
-      });
+      const response = await fetch(
+        "https://peb-production.up.railway.app/transfer",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+          },
+          body: JSON.stringify({
+            ...formData,
+            amount: parseFloat(formData.amount),
+          }),
+        }
+      );
 
       const responseData = await response.json();
 
@@ -431,17 +437,20 @@ const UserDashboard = ({ onLogout }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3001/mob-transfer", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-        body: JSON.stringify({
-          ...formMobData,
-          amount: parseFloat(formMobData.amount),
-        }),
-      });
+      const response = await fetch(
+        "https://peb-production.up.railway.app/mob-transfer",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+          },
+          body: JSON.stringify({
+            ...formMobData,
+            amount: parseFloat(formMobData.amount),
+          }),
+        }
+      );
 
       const responseData = await response.json();
 
@@ -487,17 +496,20 @@ const UserDashboard = ({ onLogout }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3001/upi-transfer", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-        body: JSON.stringify({
-          ...formUpiData,
-          amount: parseFloat(formUpiData.amount),
-        }),
-      });
+      const response = await fetch(
+        "https://peb-production.up.railway.app/upi-transfer",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+          },
+          body: JSON.stringify({
+            ...formUpiData,
+            amount: parseFloat(formUpiData.amount),
+          }),
+        }
+      );
 
       const responseData = await response.json();
 
@@ -635,7 +647,7 @@ const UserDashboard = ({ onLogout }) => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3001/user-transactions`,
+          `https://peb-production.up.railway.app/user-transactions`,
           {
             method: "GET",
             headers: {

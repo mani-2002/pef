@@ -79,11 +79,14 @@ const AdminDashboard = ({ onLogout }) => {
   const fetchDistinctUsers = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch("http://localhost:3001/distinct-users", {
-        headers: {
-          authorization: token,
-        },
-      });
+      const response = await fetch(
+        "https://peb-production.up.railway.app/distinct-users",
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
       const data = await response.json();
       setUsers(data);
     } catch (error) {
@@ -94,7 +97,7 @@ const AdminDashboard = ({ onLogout }) => {
   const deleteUserByEmail = async (email) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/delete-users/${email}`,
+        `https://peb-production.up.railway.app/delete-users/${email}`,
         {
           method: "DELETE",
         }
@@ -111,7 +114,7 @@ const AdminDashboard = ({ onLogout }) => {
   const [transactions, setTransactions] = useState([]);
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("http://localhost:3001/transaction-history", {
+    fetch("https://peb-production.up.railway.app/transaction-history", {
       headers: {
         authorization: token,
       },
@@ -160,7 +163,7 @@ const AdminDashboard = ({ onLogout }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("http://localhost:3001/transactions", {
+    fetch("https://peb-production.up.railway.app/transactions", {
       headers: {
         Authorization: token,
       },
@@ -225,7 +228,7 @@ const AdminDashboard = ({ onLogout }) => {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `http://localhost:3001/suggestions?email=${input}`,
+        `https://peb-production.up.railway.app/suggestions?email=${input}`,
         {
           headers: {
             Authorization: token,
@@ -252,7 +255,7 @@ const AdminDashboard = ({ onLogout }) => {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `http://localhost:3001/search?email=${email}`,
+        `https://peb-production.up.railway.app/search?email=${email}`,
         {
           headers: {
             Authorization: token,
