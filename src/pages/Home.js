@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../images/logo.jpeg";
 import home_img from "../images/home_img.png";
 import active1 from "../images/active1.jpg";
@@ -61,6 +61,19 @@ function Home() {
     "https://mysaralpay.com/images/Utility-Payment-centre.gif";
   const fastProcess =
     "https://www.cashlesso.com/wp-content/uploads/2020/03/19-March-Final-animation.gif";
+  const [adminData, setAdminData] = useState([]);
+  useEffect(() => {
+    fetchAdminData();
+  }, []);
+  const fetchAdminData = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/admin");
+      const data = await response.json();
+      setAdminData(data);
+    } catch (error) {
+      console.error("Error Fetching Admin Data", error);
+    }
+  };
   return (
     <div>
       <div style={{ padding: "5vh 5vh 5vh 5vh" }}>
@@ -935,10 +948,21 @@ function Home() {
                 }}
               >
                 <h3 style={{ fontWeight: "bold" }}>Contact</h3>
-                <div style={{ color: "grey" }}>+918522845343</div>
-                <div style={{ color: "grey" }}>
-                  manikantavinjamuri8522@gmail.com
-                </div>
+                {adminData.map((admin, index) => (
+                  <div
+                    key={index}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <div style={{ color: "grey" }}>{admin.name}</div>
+                    <div style={{ color: "grey" }}>{admin.mobile_number}</div>
+                    <div style={{ color: "grey" }}>{admin.email}</div>
+                  </div>
+                ))}
               </div>
               <div
                 style={{
