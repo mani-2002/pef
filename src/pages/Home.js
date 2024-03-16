@@ -69,7 +69,7 @@ function Home() {
   const fetchAdminData = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:3001/admin");
+      const response = await fetch("https://peb.onrender.com/admin");
       const data = await response.json();
       setAdminData(data);
     } catch (error) {
@@ -77,7 +77,7 @@ function Home() {
     } finally {
       setTimeout(() => {
         setLoading(false);
-      }, 1000);
+      });
     }
   };
   return (
