@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import logo from "../images/logo.jpeg";
 import home_img from "../images/home_img.png";
 import active1 from "../images/active1.jpg";
@@ -61,49 +61,8 @@ function Home() {
     "https://mysaralpay.com/images/Utility-Payment-centre.gif";
   const fastProcess =
     "https://www.cashlesso.com/wp-content/uploads/2020/03/19-March-Final-animation.gif";
-  const [adminData, setAdminData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    fetchAdminData();
-  }, []);
-  const fetchAdminData = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch("https://peb.onrender.com/admin");
-      const data = await response.json();
-      setAdminData(data);
-    } catch (error) {
-      console.error("Error Fetching Admin Data", error);
-    } finally {
-      setTimeout(() => {
-        setLoading(false);
-      });
-    }
-  };
   return (
     <div style={{ position: "relative" }}>
-      {loading && (
-        <div
-          style={{
-            postion: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(255,255,255,0.8)",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 9999,
-          }}
-        >
-          <img
-            src={logo}
-            alt="Loading"
-            style={{ width: "100px", height: "100px" }}
-          />
-        </div>
-      )}
       <div>
         <div style={{ padding: "5vh 5vh 5vh 5vh" }}>
           <div className="d-flex">
@@ -991,31 +950,20 @@ function Home() {
                   }}
                 >
                   <h3 style={{ fontWeight: "bold" }}>Contact</h3>
-                  {loading ? (
-                    <img
-                      src={logo}
-                      alt="Loading"
-                      style={{ width: "50px", height: "50px" }}
-                    />
-                  ) : (
-                    adminData.map((admin, index) => (
-                      <div
-                        key={index}
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          flexDirection: "column",
-                        }}
-                      >
-                        <div style={{ color: "grey" }}>{admin.name}</div>
-                        <div style={{ color: "grey" }}>
-                          {admin.mobile_number}
-                        </div>
-                        <div style={{ color: "grey" }}>{admin.email}</div>
-                      </div>
-                    ))
-                  )}
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <div style={{ color: "grey" }}>Manikanta Vinjamuri</div>
+                    <div style={{ color: "grey" }}>+918522845343</div>
+                    <div style={{ color: "grey" }}>
+                      manikantavinjamuri8522@gmail.com
+                    </div>
+                  </div>
                 </div>
                 <div
                   style={{
